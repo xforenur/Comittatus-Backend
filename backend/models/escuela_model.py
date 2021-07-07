@@ -1,7 +1,7 @@
 from backend.models.connection_pool import MySQLPool
 
 class EscuelaModel:
-    def _init_(self):
+    def __init__(self):
         self.mysql_pool = MySQLPool()
 
     def get_escuela(self,idEscuela):
@@ -16,7 +16,7 @@ class EscuelaModel:
         return data
 
     def get_all_escuela(self):
-        rv = self.mysql_pool.execute("SELECT * from escuela where idEscuela=%(idEscuela)s")  
+        rv = self.mysql_pool.execute("SELECT * from escuela")  
         data = []
         content = {}
         for result in rv:
